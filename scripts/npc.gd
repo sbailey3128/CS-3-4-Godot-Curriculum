@@ -4,7 +4,7 @@ class_name npc
 @onready var player: = %Player
 
 @export var health : int = 10
-@export var speed : int = 200
+@export var speed : int = 50
 @export var is_hostile : bool = false
 @export var move_points : Array[Vector2] = []
 @export var move_point : int = 0
@@ -24,14 +24,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	pass
 	
-
-func _on_detection_radius_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_detection_radius_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
-
 
 
 func movement(_delta):
