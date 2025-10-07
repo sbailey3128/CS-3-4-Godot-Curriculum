@@ -1,11 +1,29 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6gaa4kprawy0"]
+[gd_scene load_steps=17 format=3 uid="uid://c6gaa4kprawy0"]
 
 [ext_resource type="Script" uid="uid://co5hnowm81a7y" path="res://scripts/enemies/enemy_base.gd" id="1_4h4y0"]
 [ext_resource type="Texture2D" uid="uid://barrcryhoe1ep" path="res://assets/Platformer Slimes v1.3/Ogre Slime Spritesheet.png" id="2_ahq63"]
+[ext_resource type="Texture2D" uid="uid://ecnsyba5umnd" path="res://assets/Platformer Slimes v1.3/Green Slime Spritesheet.png" id="2_b58ev"]
 [ext_resource type="PackedScene" uid="uid://l7oauc6tswy3" path="res://scenes/enemies/detection_radius.tscn" id="3_b58ev"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbebl"]
-size = Vector2(11, 10)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhx0m"]
+atlas = ExtResource("2_b58ev")
+region = Rect2(48, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uxu4"]
+atlas = ExtResource("2_b58ev")
+region = Rect2(80, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdcui"]
+atlas = ExtResource("2_b58ev")
+region = Rect2(112, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikdmk"]
+atlas = ExtResource("2_b58ev")
+region = Rect2(144, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjup5"]
+atlas = ExtResource("2_b58ev")
+region = Rect2(176, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4h4y0"]
 atlas = ExtResource("2_ahq63")
@@ -29,6 +47,35 @@ region = Rect2(112, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uhx0m"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhx0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uxu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdcui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikdmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjup5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikdmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdcui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uxu4")
+}],
+"loop": true,
+"name": &"attack_animation",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4h4y0")
@@ -57,14 +104,12 @@ radius = 24.0
 script = ExtResource("1_4h4y0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_rbebl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_uhx0m")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.10445527
 
 [node name="Detection Radius" parent="." instance=ExtResource("3_b58ev")]
 
@@ -75,3 +120,5 @@ shape = SubResource("CircleShape2D_4h4y0")
 
 [connection signal="body_entered" from="Detection Radius" to="." method="_on_detection_radius_body_entered"]
 [connection signal="body_exited" from="Detection Radius" to="." method="_on_detection_radius_body_exited"]
+[connection signal="body_entered" from="hit_radius" to="." method="_on_hit_radius_body_entered"]
+[connection signal="body_exited" from="hit_radius" to="." method="_on_hit_radius_body_exited"]

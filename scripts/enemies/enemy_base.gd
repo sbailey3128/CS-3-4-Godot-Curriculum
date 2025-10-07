@@ -2,7 +2,10 @@ extends npc
 
 @onready var sprite: Sprite2D = $Sprite2D
 var is_attacking = false
-var Player
+var cooldown = 1
+var timer = cooldown
+
+
 
 
 func _ready() -> void:
@@ -11,13 +14,21 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	super._physics_process(delta)
+	if not is_attacking:
+		super._physics_process(delta)
+	else:
+		timer -= delta
+		if timer<0:
+			attack()
+			timer = cooldown
+		
+func attack():
+	print("attacked the player")
+
+
+func _process(delta: float) -> void:
 	pass
 
-func _attack_process(delta: float) -> void:
-	if is_attacking == true:
-		get_tree().create_timer(1).timeout
-		Player.change_health(5)
 
 func _on_detection_radius_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -25,4 +36,16 @@ func _on_detection_radius_body_entered(body: Node2D) -> void:
 
 
 func _on_detection_radius_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body is Player:
+		is_hostile = false
+
+
+func _on_hit_radius_body_entered(body: Node2D) -> void:
+	if body is Player:
+		is_attacking = true
+		attack()
+
+
+func _on_hit_radius_body_exited(body: Node2D) -> void:
+	if body is Player:
+		is_attacking = false
