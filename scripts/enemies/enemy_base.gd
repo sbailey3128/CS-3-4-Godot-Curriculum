@@ -1,6 +1,7 @@
 extends npc
 
-@onready var sprite: Sprite2D = $Sprite2D
+
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var is_attacking = false
 var cooldown = 1
 var timer = cooldown
@@ -24,6 +25,8 @@ func _physics_process(delta: float) -> void:
 		
 func attack():
 	print("attacked the player")
+	animated_sprite.play("attack_animation")
+
 
 
 func _process(delta: float) -> void:

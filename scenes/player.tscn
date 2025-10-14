@@ -288,5 +288,5 @@ animation = &"walk_side"
 autoplay = "idle_forward"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(440, 0)
 texture = ExtResource("4_dqkch")
+texture_scale = 2.44
