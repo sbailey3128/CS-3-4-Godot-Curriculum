@@ -26,6 +26,11 @@ func _physics_process(delta: float) -> void:
 func attack():
 	print("attacked the player")
 	animated_sprite.play("attack_animation")
+	await get_tree().create_timer(1).timeout
+	if is_attacking:
+		attack()
+	else:
+		animated_sprite.play("idle")
 
 
 

@@ -58,6 +58,21 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7uxu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhx0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhx0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhx0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhx0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhx0m")
 }],
 "loop": true,
 "name": &"attack_animation",
@@ -90,9 +105,8 @@ script = ExtResource("1_4h4y0")
 position = Vector2(0, -21)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_uhx0m")
-animation = &"idle"
+animation = &"attack_animation"
 autoplay = "idle"
-frame_progress = 0.45929134
 
 [node name="Detection Radius" parent="." instance=ExtResource("3_b58ev")]
 
