@@ -290,3 +290,5 @@ autoplay = "idle_forward"
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = ExtResource("4_dqkch")
 texture_scale = 2.44
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

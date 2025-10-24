@@ -1,5 +1,5 @@
 extends Node
-
+signal interact
 
 var game_world: GameWorld = null
 

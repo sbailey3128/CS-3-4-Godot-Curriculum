@@ -1,9 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
-
+signal interact
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-
 @export var move_speed: float = 200.0
 @export var maxHealth : int = 10
 @export var health : int = maxHealth
@@ -81,5 +80,9 @@ func die():
 	print("You died!")
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		get_tree().quit(0)
+	if event.is_action_pressed("Interact"):
+		Global.emit_signal("interact")
+
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	pass # Replace with function body.
