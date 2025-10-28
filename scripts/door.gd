@@ -8,7 +8,7 @@ func ready():
 	var lever = $"Lever"
 	lever.lever_hit.connect(_on_lever_hit)
 
-func process():
+func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Interact"):
 		print("spacebar")
 		if Lever.player_in_range:
