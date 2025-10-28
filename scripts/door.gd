@@ -1,12 +1,19 @@
-extends AnimatableBody2D
+extends Area2D
+var is_open: bool = false
+@onready var door_animation = $door_animation
+@onready var collision = $collision
+@onready var door = $Door
 
+func ready():
+	var lever = $"Lever"
+	lever.lever_hit.connect(_on_lever_hit)
 
-func set_is_open(is_open: bool) -> void:
-	if is_open:
-		$AnimatedSprite2D.frame = 0
-		collision_layer = 1
-		$LightOccluder2D.visible = false
-	else:
-		$AnimatedSprite2D.frame = 1
-		collision_layer = 0
-		$LightOccluder2D.visible = true
+func process():
+	if Input.is_action_just_pressed("Interact"):
+		print("spacebar")
+		if Lever.player_in_range:
+			door_animation.play("open")
+
+func _on_lever_hit():
+	door_animation.play("open")
+	collision_layer = 2

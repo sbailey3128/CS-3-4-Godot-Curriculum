@@ -1,7 +1,7 @@
 extends Area2D
 var right = true
 var player_in_range = false
-
+signal lever_hit
 func ready():
 	pass
 
@@ -21,6 +21,7 @@ func play_animation(reverse: bool = false) -> void:
 
 func player_interact():
 	if player_in_range:
+		emit_signal("lever_hit")
 		play_animation()
 		print("player hit lever")
 

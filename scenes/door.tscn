@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8mf4562xlcu8"]
+[gd_scene load_steps=9 format=3 uid="uid://c8mf4562xlcu8"]
 
 [ext_resource type="Script" uid="uid://bvenu0ll76s8p" path="res://scripts/door.gd" id="1_hpvv5"]
 [ext_resource type="Texture2D" uid="uid://evalbnsqt0iu" path="res://assets/2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png" id="2_uvdjg"]
+[ext_resource type="PackedScene" uid="uid://5p2ev4o8h7si" path="res://scenes/lever.tscn" id="3_83dcw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83dcw"]
 atlas = ExtResource("2_uvdjg")
@@ -31,17 +32,21 @@ size = Vector2(16, 16)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uvdjg"]
 polygon = PackedVector2Array(8, -4, 8, -8, -8, -8, -8, -4)
 
-[node name="Door" type="AnimatableBody2D"]
+[node name="Door" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_hpvv5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="door_animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(-9.536743e-07, 2.3841858e-07)
 scale = Vector2(0.49999997, 0.5)
 sprite_frames = SubResource("SpriteFrames_41c0y")
 animation = &"open"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_uvdjg")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_uvdjg")
+
+[node name="Lever" parent="." instance=ExtResource("3_83dcw")]
+position = Vector2(-208, 128)
