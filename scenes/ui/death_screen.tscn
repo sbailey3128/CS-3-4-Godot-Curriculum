@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpbvxmjkuwxtf"]
+
+[ext_resource type="Texture2D" uid="uid://djyq73q57yx40" path="res://assets/death screen.png" id="1_j0ehl"]
+
+[node name="death screen" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.670288e-05, -4.7683716e-07)
+scale = Vector2(2.6666667, 2.8148148)
+texture = ExtResource("1_j0ehl")
