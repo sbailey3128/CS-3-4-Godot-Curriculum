@@ -147,6 +147,12 @@ func heal(amount: float) -> bool:
 	return true
 
 
+func speed_boost(amount: float) -> bool:
+	move_speed += amount
+	print ("Movement speed increased!")
+	return true
+
+
 ## Gain experience points
 ## Returns true if this XP gain caused a level up
 func gain_experience(amount: float) -> bool:
