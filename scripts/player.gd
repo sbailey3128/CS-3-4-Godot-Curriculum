@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
+
 ## ============================================================================
 ## PLAYER - Main player character controller
 ## ============================================================================
@@ -74,11 +75,14 @@ func _input(event: InputEvent) -> void:
 
 
 func _ready():
+
 	current_health = max_health
 
 	# Set collision layers (Layer 1 = player)
 	collision_layer = 1
 	collision_mask = 2 | 8  # Collide with enemies (layer 2) and XP drops (layer 8)
+
+
 
 func _physics_process(_delta):
 	handle_movement()

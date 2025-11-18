@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ProjectileResource" load_steps=3 format=3 uid="uid://d16tbip3ogequ"]
+
+[ext_resource type="Script" uid="uid://dmxm5o1dwdxrs" path="res://scripts/resources/projectile_resource.gd" id="1_cj2f3"]
+[ext_resource type="Texture2D" uid="uid://bmppggvf5cpp" path="res://assets/Merchant Frames w:o bg/pixil-frame-0.png" id="2_ik07i"]
+
+[resource]
+script = ExtResource("1_cj2f3")
+texture = ExtResource("2_ik07i")
+scale = Vector2(0.1, 0.1)
+speed = 350.0
+lifetime = 0.6
+damage = 20.0

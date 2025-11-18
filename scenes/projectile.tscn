@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxvk8m4nqpr9j"]
+[gd_scene load_steps=4 format=3 uid="uid://cxvk8m4nqpsaj"]
 
-[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_projectile"]
+[ext_resource type="Script" uid="uid://c7t3kx16rwsra" path="res://scripts/projectile.gd" id="1_projectile"]
+[ext_resource type="Texture2D" uid="uid://bmppggvf5cpp" path="res://assets/Merchant Frames w:o bg/pixil-frame-0.png" id="2_q3m7n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_projectile"]
 radius = 4.0
@@ -11,7 +12,10 @@ collision_mask = 2
 script = ExtResource("1_projectile")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+position = Vector2(-1.1920929e-07, 2.3841858e-07)
+rotation = 1.5674016
+scale = Vector2(0.12381989, 0.12381989)
+texture = ExtResource("2_q3m7n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_projectile")
